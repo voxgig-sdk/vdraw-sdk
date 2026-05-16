@@ -1,0 +1,129 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Vdraw API",
+    "description": "The Vdraw API provides tools for generating funny content suitable for social media. It allows users to create unique usernames and includes features tailored for enhancing social media interactions.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/Vdraw"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://vdraw.ai/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/username_generate": {
+      "post": {
+        "summary": "Generate Username",
+        "description": "Generates a unique and funny username based on a provided username idea for social media use",
+        "operationId": "usernameGenerate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "username_idea"
+                ],
+                "properties": {
+                  "username_idea": {
+                    "type": "string",
+                    "description": "The base idea or keyword for generating a username",
+                    "example": "username_idea"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully generated username",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string",
+                      "description": "The generated username"
+                    },
+                    "suggestions": {
+                      "type": "array",
+                      "description": "Alternative username suggestions",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "username": "funky_username_2026",
+                  "suggestions": [
+                    "cool_username_pro",
+                    "awesome_username_king",
+                    "epic_username_master"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid input parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Username Generation"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "code": {
+            "type": "string",
+            "description": "Error code"
+          },
+          "details": {
+            "type": "string",
+            "description": "Additional error details"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Username Generation",
+      "description": "Operations for generating funny and unique usernames for social media"
+    }
+  ]
+}

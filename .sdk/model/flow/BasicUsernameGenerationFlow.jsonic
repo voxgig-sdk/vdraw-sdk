@@ -1,0 +1,18 @@
+# BasicUsernameGenerationFlow
+
+main: kit: flow: BasicUsernameGenerationFlow:
+{
+  entity: "username_generation",
+  kind: "basic",
+  name: "BasicUsernameGenerationFlow",
+  step: [
+    {
+      input: {
+        ref: "username_generation_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicUsernameGenerationFlow"
+}

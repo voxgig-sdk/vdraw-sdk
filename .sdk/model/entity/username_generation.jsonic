@@ -1,0 +1,47 @@
+# Entity: username_generation
+
+main: kit: entity: username_generation: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "suggestion"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "username"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "username_idea"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "username_generation"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          method: "POST"
+          orig: "/username_generate"
+          parts: [
+            "username_generate"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
