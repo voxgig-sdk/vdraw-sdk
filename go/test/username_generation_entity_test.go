@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/vdraw-sdk"
-	"github.com/voxgig-sdk/vdraw-sdk/core"
+	sdk "github.com/voxgig-sdk/vdraw-sdk/go"
+	"github.com/voxgig-sdk/vdraw-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/vdraw-sdk/go/utility/struct"
 )
 
 func TestUsernameGenerationEntity(t *testing.T) {

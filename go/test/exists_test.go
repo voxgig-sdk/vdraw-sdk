@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/vdraw-sdk"
+	sdk "github.com/voxgig-sdk/vdraw-sdk/go"
 )
 
 func TestExists(t *testing.T) {

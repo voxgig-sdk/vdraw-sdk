@@ -4,17 +4,20 @@
       "USERNAME_GENERATION00": {
         "suggestion": [],
         "username": "s1f",
-        "username_idea": "s20"
+        "username_idea": "s20",
+        "id": "USERNAME_GENERATION00"
       },
       "USERNAME_GENERATION01": {
         "suggestion": [],
         "username": "s3d",
-        "username_idea": "s3e"
+        "username_idea": "s3e",
+        "id": "USERNAME_GENERATION01"
       },
       "USERNAME_GENERATION02": {
         "suggestion": [],
         "username": "s5b",
-        "username_idea": "s5c"
+        "username_idea": "s5c",
+        "id": "USERNAME_GENERATION02"
       }
     }
   },

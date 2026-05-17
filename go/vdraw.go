@@ -1,10 +1,10 @@
 package voxgigvdrawsdk
 
 import (
-	"github.com/voxgig-sdk/vdraw-sdk/core"
-	"github.com/voxgig-sdk/vdraw-sdk/entity"
-	"github.com/voxgig-sdk/vdraw-sdk/feature"
-	_ "github.com/voxgig-sdk/vdraw-sdk/utility"
+	"github.com/voxgig-sdk/vdraw-sdk/go/core"
+	"github.com/voxgig-sdk/vdraw-sdk/go/entity"
+	"github.com/voxgig-sdk/vdraw-sdk/go/feature"
+	_ "github.com/voxgig-sdk/vdraw-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
