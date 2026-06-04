@@ -16,8 +16,20 @@ main: {
       ]
       title: "Vdraw API"
       version: "1.0.0"
+      tagline: "Generate funny Instagram-style usernames for social media content"
+      homepage: "https://vdraw.ai"
+      docs_url: "https://freepublicapis.com/vdraw-api"
+      about_md: `The Vdraw API provides a small set of tools for generating humorous content aimed at social media use, with its main exposed feature being username generation. The service is hosted at \`https://vdraw.ai/api\` and is catalogued on [Free Public APIs](https://freepublicapis.com/vdraw-api).
+
+What you get from the API:
+- A username-generation endpoint that takes a \`text\` seed and returns a generated Instagram-style username.
+- Endpoint shown in the catalogue: \`POST /v1/instagram/username-generate\`.
+
+Operational notes: the catalogue page lists CORS as disabled and reports relatively high latency and a non-trivial error rate, so callers should plan for retries and run requests server-side. Authentication and rate-limit details are not published. A community C++ wrapper exists at [l0v3m0n3y/Vdraw](https://github.com/l0v3m0n3y/Vdraw).`
+      entity_desc: {
+        username_generation: "Produces a funny social-media-style username from a seed string, via `POST /v1/instagram/username-generate` with a `text` body parameter."
+      }
+      auth: false
     }
   }
-}
-
 }

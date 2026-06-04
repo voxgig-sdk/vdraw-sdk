@@ -86,7 +86,6 @@ function username_generation_basic_setup(extra)
     ["VDRAW_TEST_USERNAME_GENERATION_ENTID"] = idmap,
     ["VDRAW_TEST_LIVE"] = "FALSE",
     ["VDRAW_TEST_EXPLAIN"] = "FALSE",
-    ["VDRAW_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -98,7 +97,6 @@ function username_generation_basic_setup(extra)
   if env["VDRAW_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["VDRAW_APIKEY"],
       },
       extra or {},
     })

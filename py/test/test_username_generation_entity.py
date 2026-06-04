@@ -87,7 +87,6 @@ def _username_generation_basic_setup(extra):
         "VDRAW_TEST_USERNAME_GENERATION_ENTID": idmap,
         "VDRAW_TEST_LIVE": "FALSE",
         "VDRAW_TEST_EXPLAIN": "FALSE",
-        "VDRAW_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -98,7 +97,6 @@ def _username_generation_basic_setup(extra):
     if env.get("VDRAW_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("VDRAW_APIKEY"),
             },
             extra or {},
         ])

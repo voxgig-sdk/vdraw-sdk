@@ -110,7 +110,6 @@ func username_generationBasicSetup(extra map[string]any) *entityTestSetup {
 		"VDRAW_TEST_USERNAME_GENERATION_ENTID": idmap,
 		"VDRAW_TEST_LIVE":      "FALSE",
 		"VDRAW_TEST_EXPLAIN":   "FALSE",
-		"VDRAW_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["VDRAW_TEST_USERNAME_GENERATION_ENTID"])
@@ -121,7 +120,6 @@ func username_generationBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["VDRAW_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["VDRAW_APIKEY"],
 			},
 			extra,
 		})
