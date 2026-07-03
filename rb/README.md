@@ -10,13 +10,13 @@ The Ruby SDK for the Vdraw API — an entity-oriented client using idiomatic Rub
 
 ## Install
 ```bash
-gem install vdraw-sdk
+gem install voxgig-sdk-vdraw
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "vdraw-sdk"
+gem "voxgig-sdk-vdraw"
 ```
 
 Then run:

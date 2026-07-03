@@ -10,7 +10,7 @@ The Python SDK for the Vdraw API — an entity-oriented client following Pythoni
 
 ## Install
 ```bash
-pip install vdraw-sdk
+pip install voxgig-sdk-vdraw
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The PHP SDK for the Vdraw API — an entity-oriented client using PHP convention
 
 ## Install
 ```bash
-composer require voxgig/vdraw-sdk
+composer require voxgig-sdk/vdraw
 ```
 
 

@@ -10,7 +10,7 @@ The Lua SDK for the Vdraw API — an entity-oriented client using Lua convention
 
 ## Install
 ```bash
-luarocks install vdraw-sdk
+luarocks install voxgig-sdk-vdraw
 ```
 
 If the module is not yet published, add the source directory to

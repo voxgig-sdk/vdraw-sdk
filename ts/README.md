@@ -10,7 +10,7 @@ The TypeScript SDK for the Vdraw API — a type-safe, entity-oriented client wit
 
 ## Install
 ```bash
-npm install vdraw
+npm install @voxgig-sdk/vdraw
 ```
 ## Tutorial: your first API call
 
