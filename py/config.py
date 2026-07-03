@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://vdraw.ai/api",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,49 +29,49 @@ def make_config():
       "username_generation": {
         "fields": [
           {
+            "active": True,
             "name": "suggestion",
             "req": False,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "username",
             "req": False,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "username_idea",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
         ],
         "name": "username_generation",
         "op": {
           "create": {
+            "input": "data",
             "name": "create",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "POST",
                 "orig": "/username_generate",
                 "parts": [
                   "username_generate",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "create",
           },
         },

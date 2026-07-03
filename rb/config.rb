@@ -15,6 +15,9 @@ module VdrawConfig
       },
       "options" => {
         "base" => "https://vdraw.ai/api",
+        "auth" => {
+          "prefix" => "Bearer",
+        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -26,49 +29,49 @@ module VdrawConfig
         "username_generation" => {
           "fields" => [
             {
+              "active" => true,
               "name" => "suggestion",
               "req" => false,
               "type" => "`$ARRAY`",
-              "active" => true,
               "index$" => 0,
             },
             {
+              "active" => true,
               "name" => "username",
               "req" => false,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 1,
             },
             {
+              "active" => true,
               "name" => "username_idea",
               "req" => true,
               "type" => "`$STRING`",
-              "active" => true,
               "index$" => 2,
             },
           ],
           "name" => "username_generation",
           "op" => {
             "create" => {
+              "input" => "data",
               "name" => "create",
               "points" => [
                 {
+                  "active" => true,
+                  "args" => {},
                   "method" => "POST",
                   "orig" => "/username_generate",
                   "parts" => [
                     "username_generate",
                   ],
+                  "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "active" => true,
-                  "args" => {},
-                  "select" => {},
                   "index$" => 0,
                 },
               ],
-              "input" => "data",
               "key$" => "create",
             },
           },

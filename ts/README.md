@@ -1,6 +1,11 @@
 # Vdraw TypeScript SDK
 
-The TypeScript SDK for the Vdraw API. Provides a type-safe, entity-oriented interface with full async/await support.
+
+
+The TypeScript SDK for the Vdraw API — a type-safe, entity-oriented client with full async/await support.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -17,7 +22,9 @@ loading a specific record.
 ```ts
 import { VdrawSDK } from 'vdraw'
 
-const client = new VdrawSDK({})
+const client = new VdrawSDK({
+  apikey: process.env.VDRAW_APIKEY,
+})
 ```
 
 ### 4. Create, update, and remove
@@ -80,7 +87,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new VdrawSDK()
+const client = new VdrawSDK({ apikey: '...' })
 const testClient = client.tester()
 ```
 
@@ -116,6 +123,7 @@ const logger = {
 }
 
 const client = new VdrawSDK({
+  apikey: '...',
   extend: [logger],
 })
 ```
@@ -126,6 +134,7 @@ Create a `.env.local` file at the project root:
 
 ```
 VDRAW_TEST_LIVE=TRUE
+VDRAW_APIKEY=<your-key>
 ```
 
 Then run:
@@ -143,6 +152,7 @@ cd ts && npm test
 
 ```ts
 new VdrawSDK(options?: {
+  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -153,6 +163,7 @@ new VdrawSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

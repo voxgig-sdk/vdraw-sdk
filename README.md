@@ -1,18 +1,8 @@
 # Vdraw SDK
 
-Generate funny Instagram-style usernames for social media content
+Vdraw API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Vdraw API
-
-The Vdraw API provides a small set of tools for generating humorous content aimed at social media use, with its main exposed feature being username generation. The service is hosted at `https://vdraw.ai/api` and is catalogued on [Free Public APIs](https://freepublicapis.com/vdraw-api).
-
-What you get from the API:
-- A username-generation endpoint that takes a `text` seed and returns a generated Instagram-style username.
-- Endpoint shown in the catalogue: `POST /v1/instagram/username-generate`.
-
-Operational notes: the catalogue page lists CORS as disabled and reports relatively high latency and a non-trivial error rate, so callers should plan for retries and run requests server-side. Authentication and rate-limit details are not published. A community C++ wrapper exists at [l0v3m0n3y/Vdraw](https://github.com/l0v3m0n3y/Vdraw).
 
 ## Try it
 
@@ -46,27 +36,28 @@ gem install vdraw-sdk
 luarocks install vdraw-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { VdrawSDK } from 'vdraw'
 
-const client = new VdrawSDK({})
+const client = new VdrawSDK({
+  apikey: process.env.VDRAW_APIKEY,
+})
 
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -96,7 +87,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **UsernameGeneration** | Produces a funny social-media-style username from a seed string, via `POST /v1/instagram/username-generate` with a `text` body parameter. | `/username_generate` |
+| **UsernameGeneration** |  | `/username_generate` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -106,9 +97,12 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from vdraw_sdk import VdrawSDK
 
-client = VdrawSDK({})
+client = VdrawSDK({
+    "apikey": os.environ.get("VDRAW_APIKEY"),
+})
 
 ```
 
@@ -118,7 +112,9 @@ client = VdrawSDK({})
 <?php
 require_once 'vdraw_sdk.php';
 
-$client = new VdrawSDK([]);
+$client = new VdrawSDK([
+    "apikey" => getenv("VDRAW_APIKEY"),
+]);
 
 ```
 
@@ -127,7 +123,9 @@ $client = new VdrawSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/vdraw-sdk/go"
 
-client := sdk.NewVdrawSDK(map[string]any{})
+client := sdk.NewVdrawSDK(map[string]any{
+    "apikey": os.Getenv("VDRAW_APIKEY"),
+})
 
 ```
 
@@ -136,7 +134,9 @@ client := sdk.NewVdrawSDK(map[string]any{})
 ```ruby
 require_relative "Vdraw_sdk"
 
-client = VdrawSDK.new({})
+client = VdrawSDK.new({
+  "apikey" => ENV["VDRAW_APIKEY"],
+})
 
 ```
 
@@ -145,7 +145,9 @@ client = VdrawSDK.new({})
 ```lua
 local sdk = require("vdraw_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("VDRAW_APIKEY"),
+})
 
 ```
 
@@ -165,25 +167,21 @@ const result = await client.UsernameGeneration().load({ id: 'test01' })
 ### Python
 
 ```python
-client = VdrawSDK.test(None, None)
-result, err = client.UsernameGeneration(None).load(
-    {"id": "test01"}, None
-)
+client = VdrawSDK.test()
+result, err = client.UsernameGeneration().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = VdrawSDK::test(null, null);
-[$result, $err] = $client->UsernameGeneration(null)->load(
-    ["id" => "test01"], null
-);
+$client = VdrawSDK::test();
+[$result, $err] = $client->UsernameGeneration()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.UsernameGeneration(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -192,19 +190,15 @@ result, err := client.UsernameGeneration(nil).Load(
 ### Ruby
 
 ```ruby
-client = VdrawSDK.test(nil, nil)
-result, err = client.UsernameGeneration(nil).load(
-  { "id" => "test01" }, nil
-)
+client = VdrawSDK.test
+result, err = client.UsernameGeneration().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:UsernameGeneration(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:UsernameGeneration():load({ id = "test01" })
 ```
 
 ## How it works
@@ -308,11 +302,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Vdraw API
-
-- Upstream: [https://vdraw.ai](https://vdraw.ai)
-- API docs: [https://freepublicapis.com/vdraw-api](https://freepublicapis.com/vdraw-api)
 
 ---
 

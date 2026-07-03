@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'VDRAW_TEST_USERNAME_GENERATION_ENTID': idmap,
     'VDRAW_TEST_LIVE': 'FALSE',
     'VDRAW_TEST_EXPLAIN': 'FALSE',
+    'VDRAW_APIKEY': 'NONE',
   })
 
   idmap = env['VDRAW_TEST_USERNAME_GENERATION_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new VdrawSDK(merge([
       {
+        apikey: env.VDRAW_APIKEY,
       },
       extra
     ]))

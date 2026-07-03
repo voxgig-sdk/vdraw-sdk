@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://vdraw.ai/api",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -25,49 +28,49 @@ func MakeConfig() map[string]any {
 			"username_generation": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "suggestion",
 						"req": false,
 						"type": "`$ARRAY`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "username",
 						"req": false,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "username_idea",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 				},
 				"name": "username_generation",
 				"op": map[string]any{
 					"create": map[string]any{
+						"input": "data",
 						"name": "create",
 						"points": []any{
 							map[string]any{
+								"active": true,
+								"args": map[string]any{},
 								"method": "POST",
 								"orig": "/username_generate",
 								"parts": []any{
 									"username_generate",
 								},
+								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
-								"args": map[string]any{},
-								"select": map[string]any{},
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "create",
 					},
 				},
