@@ -109,7 +109,7 @@ Alias for `VdrawSDK.test()`.
 ## UsernameGenerationEntity
 
 ```ts
-const username_generation = client.username_generation
+const username_generation = client.UsernameGeneration()
 ```
 
 ### Fields
@@ -127,7 +127,7 @@ const username_generation = client.username_generation
 Create a new entity with the given data.
 
 ```ts
-const result = await client.username_generation.create({
+const result = await client.UsernameGeneration().create({
   username_idea: /* `$STRING` */,
 })
 ```

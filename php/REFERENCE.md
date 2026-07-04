@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## UsernameGenerationEntity
 
 ```php
-$username_generation = $client->username_generation();
+$username_generation = $client->UsernameGeneration();
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ $username_generation = $client->username_generation();
 Create a new entity with the given data. Throws on error.
 
 ```php
-$result = $client->username_generation()->create([
+$result = $client->UsernameGeneration()->create([
   "username_idea" => /* `$STRING` */,
 ]);
 ```

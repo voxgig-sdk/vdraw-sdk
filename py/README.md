@@ -34,8 +34,8 @@ client = VdrawSDK()
 ### 4. Create, update, and remove
 
 ```python
-# Create
-created = client.usernamegeneration.create({"name": "Example"})
+# Create — returns the bare created record (a dict)
+created = client.UsernameGeneration().create({"name": "Example"})
 
 ```
 
@@ -82,8 +82,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = VdrawSDK.test()
 
-result = client.usernamegeneration.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+usernamegeneration = client.UsernameGeneration().load({"id": "test01"})
+# usernamegeneration contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -159,7 +160,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `UsernameGeneration` | `(data) -> UsernameGenerationEntity` | Create a UsernameGeneration entity instance. |
+| `UsernameGeneration` | `(data) -> UsernameGenerationEntity` | Create an UsernameGeneration entity instance. |
 
 ### Entity interface
 
@@ -218,7 +219,7 @@ API path: `/username_generate`
 
 ### UsernameGeneration
 
-Create an instance: `const username_generation = client.username_generation`
+Create an instance: `username_generation = client.UsernameGeneration()`
 
 #### Operations
 
@@ -236,9 +237,9 @@ Create an instance: `const username_generation = client.username_generation`
 
 #### Example: Create
 
-```ts
-const username_generation = await client.username_generation.create({
-  username_idea: /* `$STRING` */,
+```python
+username_generation = client.UsernameGeneration().create({
+    "username_idea": ...,  # `$STRING`
 })
 ```
 
@@ -313,7 +314,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-usernamegeneration = client.usernamegeneration
+usernamegeneration = client.UsernameGeneration()
 usernamegeneration.load({"id": "example_id"})
 
 # usernamegeneration.data_get() now returns the loaded usernamegeneration data

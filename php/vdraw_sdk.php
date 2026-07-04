@@ -233,10 +233,10 @@ class VdrawSDK
 
     private $_username_generation = null;
 
-    // Idiomatic facade: $client->username_generation()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias UsernameGeneration() (PHP method
-    // names are case-insensitive).
-    public function username_generation($data = null)
+    // Canonical facade: $client->UsernameGeneration()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->username_generation()
+    // resolves here too.
+    public function UsernameGeneration($data = null)
     {
         require_once __DIR__ . '/entity/username_generation_entity.php';
         if ($data === null) {

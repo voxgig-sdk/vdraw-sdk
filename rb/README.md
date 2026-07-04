@@ -31,8 +31,8 @@ client = VdrawSDK.new
 ### 4. Create, update, and remove
 
 ```ruby
-# Create
-created = client.usernamegeneration.create({ "name" => "Example" })
+# create returns the bare created UsernameGeneration record.
+created = client.UsernameGeneration.create({ "name" => "Example" })
 
 ```
 
@@ -77,13 +77,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = VdrawSDK.test
+client = VdrawSDK.test({
+  "entity" => { "usernamegeneration" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.usernamegeneration.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+usernamegeneration = client.UsernameGeneration.load({ "id" => "test01" })
+puts usernamegeneration
 ```
 
 ### Use a custom fetch function
@@ -159,7 +163,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `UsernameGeneration` | `(data) -> UsernameGenerationEntity` | Create a UsernameGeneration entity instance. |
+| `UsernameGeneration` | `(data) -> UsernameGenerationEntity` | Create an UsernameGeneration entity instance. |
 
 ### Entity interface
 
@@ -217,7 +221,7 @@ API path: `/username_generate`
 
 ### UsernameGeneration
 
-Create an instance: `const username_generation = client.username_generation`
+Create an instance: `username_generation = client.UsernameGeneration`
 
 #### Operations
 
@@ -235,9 +239,9 @@ Create an instance: `const username_generation = client.username_generation`
 
 #### Example: Create
 
-```ts
-const username_generation = await client.username_generation.create({
-  username_idea: /* `$STRING` */,
+```ruby
+username_generation = client.UsernameGeneration.create({
+  "username_idea" => nil, # `$STRING`
 })
 ```
 
@@ -313,7 +317,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-usernamegeneration = client.usernamegeneration
+usernamegeneration = client.UsernameGeneration
 usernamegeneration.load({ "id" => "example_id" })
 
 # usernamegeneration.data_get now returns the loaded usernamegeneration data

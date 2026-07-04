@@ -208,13 +208,7 @@ class VdrawSDK
   end
 
 
-  # Idiomatic facade: client.username_generation.list / client.username_generation.load({ "id" => ... })
-  def username_generation
-    require_relative 'entity/username_generation_entity'
-    @username_generation ||= UsernameGenerationEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.username_generation instead.
+  # Canonical facade: client.UsernameGeneration.list / client.UsernameGeneration.load({ "id" => ... })
   def UsernameGeneration(data = nil)
     require_relative 'entity/username_generation_entity'
     UsernameGenerationEntity.new(self, data)

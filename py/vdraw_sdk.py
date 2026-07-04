@@ -220,25 +220,15 @@ class VdrawSDK:
         }
 
 
-    @property
-    def username_generation(self):
-        """Idiomatic facade: client.username_generation.list() / client.username_generation.load({"id": ...})."""
-        from entity.username_generation_entity import UsernameGenerationEntity
-        cached = getattr(self, "_username_generation", None)
-        if cached is None:
-            cached = UsernameGenerationEntity(self, None)
-            self._username_generation = cached
-        return cached
-
-    def UsernameGeneration(self, data=None):
-        # Deprecated: use client.username_generation instead.
+    def UsernameGeneration(self, data=None) -> "UsernameGenerationEntity":
+        """Entity factory: client.UsernameGeneration().list({}) / client.UsernameGeneration().load({"id": ...})."""
         from entity.username_generation_entity import UsernameGenerationEntity
         return UsernameGenerationEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "VdrawSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class VdrawSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.username_generation_entity import UsernameGenerationEntity

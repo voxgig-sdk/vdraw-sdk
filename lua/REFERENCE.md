@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## UsernameGenerationEntity
 
 ```lua
-local username_generation = client:username_generation(nil)
+local username_generation = client:UsernameGeneration(nil)
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ local username_generation = client:username_generation(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:username_generation():create({
+local result, err = client:UsernameGeneration():create({
   username_idea = --[[ `$STRING` ]],
 })
 ```

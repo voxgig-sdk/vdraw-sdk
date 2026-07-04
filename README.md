@@ -128,22 +128,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = VdrawSDK.test()
-const result = await client.usernamegeneration.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const usernamegeneration = await client.UsernameGeneration().load({ id: 'test01' })
+// usernamegeneration is a bare UsernameGeneration populated with mock data
+console.log(usernamegeneration)
 ```
 
 ### Python
 
 ```python
 client = VdrawSDK.test()
-result = client.usernamegeneration.load({"id": "test01"})
+usernamegeneration = client.UsernameGeneration().load({"id": "test01"})
+print(usernamegeneration)
 ```
 
 ### PHP
 
 ```php
-$client = VdrawSDK::test();
-$result = $client->usernamegeneration()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = VdrawSDK::test([
+    "entity" => ["usernamegeneration" => ["test01" => ["id" => "test01"]]],
+]);
+$usernamegeneration = $client->UsernameGeneration()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -158,15 +163,18 @@ result, err := client.UsernameGeneration(nil).Load(
 ### Ruby
 
 ```ruby
-client = VdrawSDK.test
-result = client.usernamegeneration.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = VdrawSDK.test({
+  "entity" => { "usernamegeneration" => { "test01" => { "id" => "test01" } } },
+})
+usernamegeneration = client.UsernameGeneration.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:usernamegeneration():load({ id = "test01" })
+local result, err = client:UsernameGeneration():load({ id = "test01" })
 ```
 
 ## How it works
@@ -214,6 +222,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

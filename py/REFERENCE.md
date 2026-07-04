@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## UsernameGenerationEntity
 
 ```python
-username_generation = client.username_generation
+username_generation = client.UsernameGeneration()
 ```
 
 ### Fields
@@ -98,8 +98,8 @@ username_generation = client.username_generation
 Create a new entity with the given data. Returns the created entity data and raises on error.
 
 ```python
-result = client.username_generation.create({
-    "username_idea": # `$STRING`,
+result = client.UsernameGeneration().create({
+    "username_idea": ...,  # `$STRING`
 })
 ```
 

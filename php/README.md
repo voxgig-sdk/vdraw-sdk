@@ -32,8 +32,8 @@ $client = new VdrawSDK();
 ### 4. Create, update, and remove
 
 ```php
-// Create
-$created = $client->usernamegeneration()->create(["name" => "Example"]);
+// create() returns the bare created UsernameGeneration record.
+$created = $client->UsernameGeneration()->create(["name" => "Example"]);
 
 ```
 
@@ -78,13 +78,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = VdrawSDK::test();
+$client = VdrawSDK::test([
+    "entity" => ["usernamegeneration" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->usernamegeneration()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$usernamegeneration = $client->UsernameGeneration()->load(["id" => "test01"]);
+print_r($usernamegeneration);
 ```
 
 ### Use a custom fetch function
@@ -163,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `UsernameGeneration` | `($data): UsernameGenerationEntity` | Create a UsernameGeneration entity instance. |
+| `UsernameGeneration` | `($data): UsernameGenerationEntity` | Create an UsernameGeneration entity instance. |
 
 ### Entity interface
 
@@ -222,7 +226,7 @@ API path: `/username_generate`
 
 ### UsernameGeneration
 
-Create an instance: `const username_generation = client.username_generation`
+Create an instance: `$username_generation = $client->UsernameGeneration();`
 
 #### Operations
 
@@ -240,10 +244,10 @@ Create an instance: `const username_generation = client.username_generation`
 
 #### Example: Create
 
-```ts
-const username_generation = await client.username_generation.create({
-  username_idea: /* `$STRING` */,
-})
+```php
+$username_generation = $client->UsernameGeneration()->create([
+    "username_idea" => null, // `$STRING`
+]);
 ```
 
 
@@ -318,7 +322,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$usernamegeneration = $client->usernamegeneration();
+$usernamegeneration = $client->UsernameGeneration();
 $usernamegeneration->load(["id" => "example_id"]);
 
 // $usernamegeneration->dataGet() now returns the loaded usernamegeneration data

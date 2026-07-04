@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## UsernameGenerationEntity
 
 ```ruby
-username_generation = client.username_generation
+username_generation = client.UsernameGeneration
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ username_generation = client.username_generation
 Create a new entity with the given data. Raises on error.
 
 ```ruby
-result = client.username_generation.create({
+result = client.UsernameGeneration.create({
   "username_idea" => # `$STRING`,
 })
 ```

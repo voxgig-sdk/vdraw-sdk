@@ -30,32 +30,31 @@ go mod edit -replace github.com/voxgig-sdk/vdraw-sdk/go=../vdraw-sdk/go
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/vdraw-sdk/go"
-    "github.com/voxgig-sdk/vdraw-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 4. Create, update, and remove
-
-```go
-// Create
-created, _ := client.UsernameGeneration(nil).Create(
-    map[string]any{"name": "Example"}, nil,
-)
-cm := core.ToMapAny(created)
-newID := core.ToMapAny(cm["data"])["id"]
-
+    // Create a usernamegeneration.
+    created, err := client.UsernameGeneration(nil).Create(map[string]any{"name": "Example"}, nil)
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println(created)
+}
 ```
 
 
@@ -105,10 +104,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.UsernameGeneration(nil).Load(
+usernamegeneration, err := client.UsernameGeneration(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(usernamegeneration) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -185,7 +187,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `GetUtility` | `() *Utility` | Copy of the SDK utility object. |
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
-| `UsernameGeneration` | `(data map[string]any) VdrawEntity` | Create a UsernameGeneration entity instance. |
+| `UsernameGeneration` | `(data map[string]any) VdrawEntity` | Create an UsernameGeneration entity instance. |
 
 ### Entity interface (VdrawEntity)
 
@@ -205,17 +207,24 @@ All entities implement the `VdrawEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    usernamegeneration, err := client.UsernameGeneration(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // usernamegeneration is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
