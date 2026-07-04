@@ -44,9 +44,7 @@ class TestUsernameGenerationEntity:
         username_generation_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.username_generation"), "username_generation_ref01"))
 
-        username_generation_ref01_data_result, err = username_generation_ref01_ent.create(username_generation_ref01_data, None)
-        assert err is None
-        username_generation_ref01_data = helpers.to_map(username_generation_ref01_data_result)
+        username_generation_ref01_data = helpers.to_map(username_generation_ref01_ent.create(username_generation_ref01_data, None))
         assert username_generation_ref01_data is not None
 
 
@@ -87,7 +85,6 @@ def _username_generation_basic_setup(extra):
         "VDRAW_TEST_USERNAME_GENERATION_ENTID": idmap,
         "VDRAW_TEST_LIVE": "FALSE",
         "VDRAW_TEST_EXPLAIN": "FALSE",
-        "VDRAW_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -98,7 +95,6 @@ def _username_generation_basic_setup(extra):
     if env.get("VDRAW_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("VDRAW_APIKEY"),
             },
             extra or {},
         ])

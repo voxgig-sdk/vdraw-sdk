@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:username_generation():list() / client:username_generation():load({ id = ... })
+function VdrawSDK:username_generation(data)
+  local EntityMod = require("entity.username_generation_entity")
+  if data == nil then
+    if self._username_generation == nil then
+      self._username_generation = EntityMod.new(self, nil)
+    end
+    return self._username_generation
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:username_generation() instead.
 function VdrawSDK:UsernameGeneration(data)
   local EntityMod = require("entity.username_generation_entity")
   return EntityMod.new(self, data)

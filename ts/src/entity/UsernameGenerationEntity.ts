@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  UsernameGeneration,
+  UsernameGenerationCreateData,
+} from '../VdrawTypes'
 
 // TODO: needs Entity superclass
-class UsernameGenerationEntity extends VdrawEntityBase {
+class UsernameGenerationEntity extends VdrawEntityBase<UsernameGeneration> {
 
   constructor(client: VdrawSDK, entopts: any) {
     super(client, entopts)
@@ -34,7 +38,7 @@ class UsernameGenerationEntity extends VdrawEntityBase {
 
 
 
-  async create(this: any, reqdata?: any, ctrl?: Control) {
+  async create(this: any, reqdata?: UsernameGenerationCreateData, ctrl?: Control): Promise<UsernameGeneration> {
 
     const utility = this._utility
     const {
@@ -133,7 +137,9 @@ class UsernameGenerationEntity extends VdrawEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<UsernameGeneration> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

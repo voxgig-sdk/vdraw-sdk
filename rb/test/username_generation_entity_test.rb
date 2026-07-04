@@ -36,8 +36,7 @@ class UsernameGenerationEntityTest < Minitest::Test
     username_generation_ref01_data = Helpers.to_map(Vs.getprop(
       Vs.getpath(setup[:data], "new.username_generation"), "username_generation_ref01"))
 
-    username_generation_ref01_data_result, err = username_generation_ref01_ent.create(username_generation_ref01_data, nil)
-    assert_nil err
+    username_generation_ref01_data_result = username_generation_ref01_ent.create(username_generation_ref01_data, nil)
     username_generation_ref01_data = Helpers.to_map(username_generation_ref01_data_result)
     assert !username_generation_ref01_data.nil?
 
@@ -77,7 +76,6 @@ def username_generation_basic_setup(extra)
     "VDRAW_TEST_USERNAME_GENERATION_ENTID" => idmap,
     "VDRAW_TEST_LIVE" => "FALSE",
     "VDRAW_TEST_EXPLAIN" => "FALSE",
-    "VDRAW_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -89,7 +87,6 @@ def username_generation_basic_setup(extra)
   if env["VDRAW_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["VDRAW_APIKEY"],
       },
       extra || {},
     ])

@@ -2,6 +2,8 @@
 
 import { UsernameGenerationEntity } from './entity/UsernameGenerationEntity'
 
+export type * from './VdrawTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class VdrawSDK {
 
 
 
+  _username_generation?: UsernameGenerationEntity
+
+  // Idiomatic facade: `client.username_generation.list()` / `client.username_generation.load({ id })`.
+  get username_generation(): UsernameGenerationEntity {
+    return (this._username_generation ??= new UsernameGenerationEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.username_generation` instead. */
   UsernameGeneration(data?: any) {
     const self = this
     return new UsernameGenerationEntity(self,data)

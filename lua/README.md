@@ -9,12 +9,9 @@ The Lua SDK for the Vdraw API — an entity-oriented client using Lua convention
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-vdraw
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/vdraw-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,16 +28,14 @@ loading a specific record.
 ```lua
 local sdk = require("vdraw_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("VDRAW_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 4. Create, update, and remove
 
 ```lua
 -- Create
-local created, _ = client:UsernameGeneration():create({ name = "Example" })
+local created, _ = client:usernamegeneration():create({ name = "Example" })
 
 ```
 
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Vdraw():load({ id = "test01" })
+local result, err = client:usernamegeneration():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -121,7 +116,6 @@ Create a `.env.local` file at the project root:
 
 ```
 VDRAW_TEST_LIVE=TRUE
-VDRAW_APIKEY=<your-key>
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -223,7 +216,7 @@ API path: `/username_generate`
 
 ### UsernameGeneration
 
-Create an instance: `const username_generation = client.UsernameGeneration()`
+Create an instance: `const username_generation = client.username_generation`
 
 #### Operations
 
@@ -242,7 +235,7 @@ Create an instance: `const username_generation = client.UsernameGeneration()`
 #### Example: Create
 
 ```ts
-const username_generation = await client.UsernameGeneration().create({
+const username_generation = await client.username_generation.create({
   username_idea: /* `$STRING` */,
 })
 ```
@@ -319,11 +312,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local usernamegeneration = client:usernamegeneration()
+usernamegeneration:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- usernamegeneration:data_get() now returns the loaded usernamegeneration data
+-- usernamegeneration:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

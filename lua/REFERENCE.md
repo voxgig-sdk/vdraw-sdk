@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## UsernameGenerationEntity
 
 ```lua
-local username_generation = client:UsernameGeneration(nil)
+local username_generation = client:username_generation(nil)
 ```
 
 ### Fields
@@ -102,7 +101,7 @@ local username_generation = client:UsernameGeneration(nil)
 Create a new entity with the given data.
 
 ```lua
-local result, err = client:UsernameGeneration():create({
+local result, err = client:username_generation():create({
   username_idea = --[[ `$STRING` ]],
 })
 ```

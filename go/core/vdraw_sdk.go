@@ -245,6 +245,9 @@ func (sdk *VdrawSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// UsernameGeneration returns a UsernameGeneration entity bound to this client.
+// Idiomatic usage: client.UsernameGeneration(nil).List(nil, nil) or
+// client.UsernameGeneration(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *VdrawSDK) UsernameGeneration(data map[string]any) VdrawEntity {
 	return NewUsernameGenerationEntityFunc(sdk, data)
 }

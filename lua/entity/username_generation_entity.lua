@@ -83,6 +83,10 @@ end
 
 
 
+---@param reqdata UsernameGenerationCreateData
+---@param ctrl? table
+---@return UsernameGeneration
+---@return string? err
 function UsernameGenerationEntity:create(reqdata, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

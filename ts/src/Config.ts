@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://vdraw.ai/api',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
