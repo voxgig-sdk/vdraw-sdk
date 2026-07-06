@@ -12,6 +12,9 @@
 ---@field username_idea string
 
 ---@class UsernameGenerationCreateData
+---@field suggestion? table
+---@field username? string
+---@field username_idea string
 
 local M = {}
 

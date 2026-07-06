@@ -15,12 +15,11 @@ type UsernameGeneration struct {
 	UsernameIdea string `json:"username_idea"`
 }
 
-// UsernameGenerationCreateData mirrors the username_generation fields as an all-optional match
-// filter (Go analog of Partial<UsernameGeneration>).
+// UsernameGenerationCreateData is the typed request payload for UsernameGeneration.CreateTyped.
 type UsernameGenerationCreateData struct {
 	Suggestion *[]any `json:"suggestion,omitempty"`
 	Username *string `json:"username,omitempty"`
-	UsernameIdea *string `json:"username_idea,omitempty"`
+	UsernameIdea string `json:"username_idea"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

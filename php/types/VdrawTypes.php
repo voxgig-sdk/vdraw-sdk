@@ -20,11 +20,11 @@ class UsernameGeneration
     public string $username_idea;
 }
 
-/** Match filter for UsernameGeneration#create (any subset of UsernameGeneration fields). */
+/** Request payload for UsernameGeneration#create. */
 class UsernameGenerationCreateData
 {
     public ?array $suggestion = null;
     public ?string $username = null;
-    public ?string $username_idea = null;
+    public string $username_idea;
 }
 

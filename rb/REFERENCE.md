@@ -8,7 +8,7 @@ Complete API reference for the Vdraw Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'vdraw_sdk'
+require_relative 'Vdraw_sdk'
 
 client = VdrawSDK.new(options)
 ```
@@ -93,9 +93,9 @@ username_generation = client.UsernameGeneration
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestion` | ``$ARRAY`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `username_idea` | ``$STRING`` | Yes |  |
+| `suggestion` | `Array` | No |  |
+| `username` | `String` | No |  |
+| `username_idea` | `String` | Yes |  |
 
 ### Operations
 
@@ -105,7 +105,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.UsernameGeneration.create({
-  "username_idea" => # `$STRING`,
+  "username_idea" => "example", # String
 })
 ```
 

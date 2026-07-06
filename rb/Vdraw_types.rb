@@ -25,7 +25,7 @@ UsernameGeneration = Struct.new(
   keyword_init: true
 )
 
-# Match filter for UsernameGeneration#create (any subset of UsernameGeneration fields).
+# Request payload for UsernameGeneration#create.
 #
 # @!attribute [rw] suggestion
 #   @return [Array, nil]
@@ -34,7 +34,7 @@ UsernameGeneration = Struct.new(
 #   @return [String, nil]
 #
 # @!attribute [rw] username_idea
-#   @return [String, nil]
+#   @return [String]
 UsernameGenerationCreateData = Struct.new(
   :suggestion,
   :username,

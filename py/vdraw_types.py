@@ -25,7 +25,10 @@ class UsernameGeneration(UsernameGenerationRequired, total=False):
     username: str
 
 
-class UsernameGenerationCreateData(TypedDict, total=False):
+class UsernameGenerationCreateDataRequired(TypedDict):
+    username_idea: str
+
+
+class UsernameGenerationCreateData(UsernameGenerationCreateDataRequired, total=False):
     suggestion: list
     username: str
-    username_idea: str

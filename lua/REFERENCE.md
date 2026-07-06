@@ -90,9 +90,9 @@ local username_generation = client:UsernameGeneration(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestion` | ``$ARRAY`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `username_idea` | ``$STRING`` | Yes |  |
+| `suggestion` | `table` | No |  |
+| `username` | `string` | No |  |
+| `username_idea` | `string` | Yes |  |
 
 ### Operations
 
@@ -102,7 +102,7 @@ Create a new entity with the given data.
 
 ```lua
 local result, err = client:UsernameGeneration():create({
-  username_idea = --[[ `$STRING` ]],
+  username_idea = --[[ string ]],
 })
 ```
 

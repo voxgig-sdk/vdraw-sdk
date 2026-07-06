@@ -221,7 +221,7 @@ class VdrawSDK:
 
 
     def UsernameGeneration(self, data=None) -> "UsernameGenerationEntity":
-        """Entity factory: client.UsernameGeneration().list({}) / client.UsernameGeneration().load({"id": ...})."""
+        """Entity factory: client.UsernameGeneration().list() / client.UsernameGeneration().load({"id": ...})."""
         from entity.username_generation_entity import UsernameGenerationEntity
         return UsernameGenerationEntity(self, data)
 

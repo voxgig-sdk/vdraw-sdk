@@ -87,9 +87,9 @@ username_generation = client.UsernameGeneration()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestion` | ``$ARRAY`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `username_idea` | ``$STRING`` | Yes |  |
+| `suggestion` | `list` | No |  |
+| `username` | `str` | No |  |
+| `username_idea` | `str` | Yes |  |
 
 ### Operations
 
@@ -99,7 +99,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.UsernameGeneration().create({
-    "username_idea": ...,  # `$STRING`
+    "username_idea": "example",  # str
 })
 ```
 

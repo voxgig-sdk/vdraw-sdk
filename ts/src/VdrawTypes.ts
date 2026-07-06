@@ -11,5 +11,9 @@ export interface UsernameGeneration {
   username_idea: string
 }
 
-export type UsernameGenerationCreateData = Partial<UsernameGeneration>
+export interface UsernameGenerationCreateData {
+  suggestion?: any[]
+  username?: string
+  username_idea: string
+}
 

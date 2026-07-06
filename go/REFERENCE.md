@@ -97,9 +97,9 @@ username_generation := client.UsernameGeneration(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestion` | ``$ARRAY`` | No |  |
-| `username` | ``$STRING`` | No |  |
-| `username_idea` | ``$STRING`` | Yes |  |
+| `suggestion` | `[]any` | No |  |
+| `username` | `string` | No |  |
+| `username_idea` | `string` | Yes |  |
 
 ### Operations
 
@@ -109,7 +109,7 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.UsernameGeneration(nil).Create(map[string]any{
-    "username_idea": /* `$STRING` */,
+    "username_idea": /* string */,
 }, nil)
 ```
 
