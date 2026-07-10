@@ -316,7 +316,7 @@ Create an instance: `const username_generation = client.UsernameGeneration()`
 
 ```ts
 const username_generation = await client.UsernameGeneration().create({
-  username_idea: /* string */,
+  username_idea: 'example_username_idea',
 })
 ```
 

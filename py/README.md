@@ -40,7 +40,7 @@ client = VdrawSDK()
 
 ```python
 # Create — returns the bare created record (a dict)
-created = client.UsernameGeneration().create({"username_idea": "example"})
+created = client.UsernameGeneration().create({"username_idea": "example_username_idea"})
 
 ```
 
@@ -271,7 +271,7 @@ Create an instance: `username_generation = client.UsernameGeneration()`
 
 ```python
 username_generation = client.UsernameGeneration().create({
-    "username_idea": "example",  # str
+    "username_idea": "example_username_idea",  # str
 })
 ```
 

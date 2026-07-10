@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## UsernameGenerationEntity
 
 ```go
-username_generation := client.UsernameGeneration(nil)
+usernameGeneration := client.UsernameGeneration(nil)
+fmt.Println(usernameGeneration.GetName()) // "username_generation"
 ```
 
 ### Fields
@@ -109,8 +110,12 @@ Create a new entity with the given data.
 
 ```go
 result, err := client.UsernameGeneration(nil).Create(map[string]any{
-    "username_idea": /* string */,
+    "username_idea": "example_username_idea",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

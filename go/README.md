@@ -50,8 +50,8 @@ import (
 func main() {
     client := sdk.New()
 
-    // Create a usernamegeneration.
-    created, err := client.UsernameGeneration(nil).Create(map[string]any{"username_idea": "example"}, nil)
+    // Create a usernameGeneration.
+    created, err := client.UsernameGeneration(nil).Create(map[string]any{"username_idea": "example_username_idea"}, nil)
     if err != nil {
         panic(err)
     }
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-usernamegeneration, err := client.UsernameGeneration(nil).Create(
+usernameGeneration, err := client.UsernameGeneration(nil).Create(
     map[string]any{"username_idea": "example"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(usernamegeneration) // the returned mock data
+fmt.Println(usernameGeneration) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    usernamegeneration, err := client.UsernameGeneration(nil).Create(map[string]any{/* fields */}, nil)
+    usernameGeneration, err := client.UsernameGeneration(nil).Create(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // usernamegeneration is the returned record
+    // usernameGeneration is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -273,7 +273,7 @@ API path: `/username_generate`
 
 ### UsernameGeneration
 
-Create an instance: `username_generation := client.UsernameGeneration(nil)`
+Create an instance: `usernameGeneration := client.UsernameGeneration(nil)`
 
 #### Operations
 
@@ -293,8 +293,12 @@ Create an instance: `username_generation := client.UsernameGeneration(nil)`
 
 ```go
 result, err := client.UsernameGeneration(nil).Create(map[string]any{
-    "username_idea": /* string */,
+    "username_idea": "example_username_idea",
 }, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 

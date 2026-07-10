@@ -15,9 +15,9 @@ main: {
           url: "https://vdraw.ai/api"
         }
       ]
+      summary: "The Vdraw API provides tools for generating funny content suitable for social media."
       title: "Vdraw API"
       version: "1.0.0"
+      website: "https://vdraw.ai"
     }
   }
-}
-

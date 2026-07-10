@@ -105,7 +105,7 @@ Create a new entity with the given data. Raises on error.
 
 ```ruby
 result = client.UsernameGeneration.create({
-  "username_idea" => "example", # String
+  "username_idea" => "example_username_idea", # String
 })
 ```
 

@@ -35,7 +35,7 @@ $client = new VdrawSDK();
 
 ```php
 // create() returns the bare created UsernameGeneration record.
-$created = $client->UsernameGeneration()->create(["username_idea" => "example"]);
+$created = $client->UsernameGeneration()->create(["username_idea" => "example_username_idea"]);
 
 ```
 

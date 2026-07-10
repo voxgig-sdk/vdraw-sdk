@@ -34,7 +34,7 @@ client = VdrawSDK.new
 
 ```ruby
 # create returns the bare created UsernameGeneration record.
-created = client.UsernameGeneration.create({ "username_idea" => "example" })
+created = client.UsernameGeneration.create({ "username_idea" => "example_username_idea" })
 
 ```
 
@@ -265,7 +265,7 @@ Create an instance: `username_generation = client.UsernameGeneration`
 
 ```ruby
 username_generation = client.UsernameGeneration.create({
-  "username_idea" => "example", # String
+  "username_idea" => "example_username_idea", # String
 })
 ```
 

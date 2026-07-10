@@ -128,7 +128,7 @@ Create a new entity with the given data.
 
 ```ts
 const result = await client.UsernameGeneration().create({
-  username_idea: /* string */,
+  username_idea: 'example_username_idea',
 })
 ```
 

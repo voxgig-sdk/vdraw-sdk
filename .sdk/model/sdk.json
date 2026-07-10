@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -197,14 +194,17 @@
           "url": "https://github.com/l0v3m0n3y/Vdraw"
         },
         "description": "The Vdraw API provides tools for generating funny content suitable for social media. It allows users to create unique usernames and includes features tailored for enhancing social media interactions.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://vdraw.ai/api"
           }
         ],
+        "summary": "The Vdraw API provides tools for generating funny content suitable for social media.",
         "title": "Vdraw API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://vdraw.ai"
       },
       "option": {},
       "target": {
@@ -257,6 +257,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -307,6 +310,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

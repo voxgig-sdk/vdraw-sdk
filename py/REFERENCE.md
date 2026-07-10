@@ -99,7 +99,7 @@ Create a new entity with the given data. Returns the created entity data and rai
 
 ```python
 result = client.UsernameGeneration().create({
-    "username_idea": "example",  # str
+    "username_idea": "example_username_idea",  # str
 })
 ```
 

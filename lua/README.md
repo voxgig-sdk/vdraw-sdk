@@ -37,7 +37,7 @@ local client = sdk.new()
 
 ```lua
 -- Create
-local created, err = client:UsernameGeneration():create({ username_idea = "example" })
+local created, err = client:UsernameGeneration():create({ username_idea = "example_username_idea" })
 if err then error(err) end
 
 ```
@@ -261,7 +261,7 @@ Create an instance: `local username_generation = client:UsernameGeneration(nil)`
 
 ```lua
 local username_generation, err = client:UsernameGeneration():create({
-  username_idea = nil, -- string
+  username_idea = "example_username_idea", -- string
 })
 ```
 
