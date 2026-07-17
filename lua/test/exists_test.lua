@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Vdraw SDK exists test
 
 local sdk = require("vdraw_sdk")
 

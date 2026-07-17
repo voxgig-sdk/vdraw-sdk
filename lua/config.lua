@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- Vdraw SDK configuration
 
 local function make_config()
   return {
