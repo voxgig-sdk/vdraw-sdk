@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from vdraw_sdk.utility.voxgig_struct import voxgig_struct as vs
 from vdraw_sdk import VdrawSDK
-from core import helpers
+from vdraw_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -44,7 +44,7 @@ class TestUsernameGenerationEntity:
         username_generation_ref01_data = helpers.to_map(vs.getprop(
             vs.getpath(setup["data"], "new.username_generation"), "username_generation_ref01"))
 
-        username_generation_ref01_data = helpers.to_map(username_generation_ref01_ent.create(username_generation_ref01_data, None))
+        username_generation_ref01_data = helpers.to_map(runner.entity_data(username_generation_ref01_ent.create(username_generation_ref01_data, None)))
         assert username_generation_ref01_data is not None
 
 

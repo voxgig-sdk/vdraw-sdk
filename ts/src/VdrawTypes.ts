@@ -6,13 +6,13 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface UsernameGeneration {
-  suggestion?: any[]
+  suggestions?: any[]
   username?: string
   username_idea: string
 }
 
 export interface UsernameGenerationCreateData {
-  suggestion?: any[]
+  suggestions?: any[]
   username?: string
   username_idea: string
 }

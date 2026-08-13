@@ -27,7 +27,7 @@ module VdrawConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "suggestion",
+              "name" => "suggestions",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -56,6 +56,7 @@ module VdrawConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "POST",
                   "orig" => "/username_generate",
                   "parts" => [

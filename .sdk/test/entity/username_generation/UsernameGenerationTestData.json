@@ -2,19 +2,19 @@
   "existing": {
     "username_generation": {
       "USERNAME_GENERATION00": {
-        "suggestion": [],
+        "suggestions": [],
         "username": "s1f",
         "username_idea": "s20",
         "id": "USERNAME_GENERATION00"
       },
       "USERNAME_GENERATION01": {
-        "suggestion": [],
+        "suggestions": [],
         "username": "s3d",
         "username_idea": "s3e",
         "id": "USERNAME_GENERATION01"
       },
       "USERNAME_GENERATION02": {
-        "suggestion": [],
+        "suggestions": [],
         "username": "s5b",
         "username_idea": "s5c",
         "id": "USERNAME_GENERATION02"
@@ -24,7 +24,7 @@
   "new": {
     "username_generation": {
       "username_generation_ref01": {
-        "suggestion": [],
+        "suggestions": [],
         "username": "s79",
         "username_idea": "s7a"
       }

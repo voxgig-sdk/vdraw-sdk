@@ -92,7 +92,7 @@ $username_generation = $client->UsernameGeneration();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestion` | `array` | No |  |
+| `suggestions` | `array` | No |  |
 | `username` | `string` | No |  |
 | `username_idea` | `string` | Yes |  |
 

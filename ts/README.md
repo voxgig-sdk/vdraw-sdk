@@ -36,7 +36,7 @@ const client = new VdrawSDK()
 ### 4. Create, update, and remove
 
 ```ts
-// Create — returns the created UsernameGeneration
+// Create — returns the created UsernameGeneration ENTITY (.data() for the record)
 const created = await client.UsernameGeneration().create({
   username_idea: 'example_username_idea',
 })
@@ -118,7 +118,8 @@ Create a mock client for unit testing — no server required:
 const client = VdrawSDK.test()
 
 const usernamegeneration = await client.UsernameGeneration().create({ username_idea: 'example_username_idea' })
-// usernamegeneration is a bare entity populated with mock response data
+// usernamegeneration is the entity, populated with mock response data
+// — call usernamegeneration.data() for the record itself
 console.log(usernamegeneration)
 ```
 
@@ -281,7 +282,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `suggestion` |  |
+| `suggestions` |  |
 | `username` |  |
 | `username_idea` |  |
 
@@ -308,7 +309,7 @@ Create an instance: `const username_generation = client.UsernameGeneration()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestion` | `any[]` |  |
+| `suggestions` | `any[]` |  |
 | `username` | `string` |  |
 | `username_idea` | `string` |  |
 

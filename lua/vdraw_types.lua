@@ -7,12 +7,12 @@
 -- edit by hand.
 
 ---@class UsernameGeneration
----@field suggestion? table
+---@field suggestions? table
 ---@field username? string
 ---@field username_idea string
 
 ---@class UsernameGenerationCreateData
----@field suggestion? table
+---@field suggestions? table
 ---@field username? string
 ---@field username_idea string
 

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Vdraw SDK exists test
 
 import pytest
 from vdraw_sdk import VdrawSDK

@@ -44,7 +44,7 @@ class UsernameGenerationEntityTest extends TestCase
             Vs::getpath($setup["data"], "new.username_generation"), "username_generation_ref01"));
 
         $username_generation_ref01_data_result = $username_generation_ref01_ent->create($username_generation_ref01_data, null);
-        $username_generation_ref01_data = Helpers::to_map($username_generation_ref01_data_result);
+        $username_generation_ref01_data = Helpers::to_map(is_object($username_generation_ref01_data_result) && method_exists($username_generation_ref01_data_result, 'data_get') ? $username_generation_ref01_data_result->data_get() : $username_generation_ref01_data_result);
         $this->assertNotNull($username_generation_ref01_data);
 
     }

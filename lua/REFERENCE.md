@@ -90,7 +90,7 @@ local username_generation = client:UsernameGeneration(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestion` | `table` | No |  |
+| `suggestions` | `table` | No |  |
 | `username` | `string` | No |  |
 | `username_idea` | `string` | Yes |  |
 

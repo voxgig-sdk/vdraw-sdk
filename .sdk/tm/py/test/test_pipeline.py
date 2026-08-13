@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import VdrawSDK
-from core.error import VdrawError
-from core.result import VdrawResult
-from core.response import VdrawResponse
-from core.spec import VdrawSpec
-from feature.base_feature import VdrawBaseFeature
+from projectname_sdk.core.error import VdrawError
+from projectname_sdk.core.result import VdrawResult
+from projectname_sdk.core.response import VdrawResponse
+from projectname_sdk.core.spec import VdrawSpec
+from projectname_sdk.feature.base_feature import VdrawBaseFeature
 
 
 def _client():

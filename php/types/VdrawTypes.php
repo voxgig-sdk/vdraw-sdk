@@ -15,7 +15,7 @@ declare(strict_types=1);
 /** UsernameGeneration entity data model. */
 class UsernameGeneration
 {
-    public ?array $suggestion = null;
+    public ?array $suggestions = null;
     public ?string $username = null;
     public string $username_idea;
 }
@@ -23,7 +23,7 @@ class UsernameGeneration
 /** Request payload for UsernameGeneration#create. */
 class UsernameGenerationCreateData
 {
-    public ?array $suggestion = null;
+    public ?array $suggestions = null;
     public ?string $username = null;
     public string $username_idea;
 }

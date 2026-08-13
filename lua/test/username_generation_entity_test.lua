@@ -41,7 +41,7 @@ describe("UsernameGenerationEntity", function()
 
     local username_generation_ref01_data_result, err = username_generation_ref01_ent:create(username_generation_ref01_data, nil)
     assert.is_nil(err)
-    username_generation_ref01_data = helpers.to_map(username_generation_ref01_data_result)
+    username_generation_ref01_data = helpers.to_map(type(username_generation_ref01_data_result) == 'table' and username_generation_ref01_data_result.data_get and username_generation_ref01_data_result:data_get() or username_generation_ref01_data_result)
     assert.is_not_nil(username_generation_ref01_data)
 
   end)

@@ -213,9 +213,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local username_generation, err = client:UsernameGeneration():load()
+    local username_generation, err = client:UsernameGeneration():list()
     if err then error(err) end
-    -- username_generation is the loaded record
+    -- username_generation is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -226,7 +226,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `suggestion` |  |
+| `suggestions` |  |
 | `username` |  |
 | `username_idea` |  |
 
@@ -253,7 +253,7 @@ Create an instance: `local username_generation = client:UsernameGeneration(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestion` | `table` |  |
+| `suggestions` | `table` |  |
 | `username` | `string` |  |
 | `username_idea` | `string` |  |
 

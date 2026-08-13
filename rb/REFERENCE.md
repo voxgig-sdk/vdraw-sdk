@@ -93,7 +93,7 @@ username_generation = client.UsernameGeneration
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestion` | `Array` | No |  |
+| `suggestions` | `Array` | No |  |
 | `username` | `String` | No |  |
 | `username_idea` | `String` | Yes |  |
 

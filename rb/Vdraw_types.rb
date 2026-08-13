@@ -10,7 +10,7 @@
 
 # UsernameGeneration entity data model.
 #
-# @!attribute [rw] suggestion
+# @!attribute [rw] suggestions
 #   @return [Array, nil]
 #
 # @!attribute [rw] username
@@ -19,7 +19,7 @@
 # @!attribute [rw] username_idea
 #   @return [String]
 UsernameGeneration = Struct.new(
-  :suggestion,
+  :suggestions,
   :username,
   :username_idea,
   keyword_init: true
@@ -27,7 +27,7 @@ UsernameGeneration = Struct.new(
 
 # Request payload for UsernameGeneration#create.
 #
-# @!attribute [rw] suggestion
+# @!attribute [rw] suggestions
 #   @return [Array, nil]
 #
 # @!attribute [rw] username
@@ -36,7 +36,7 @@ UsernameGeneration = Struct.new(
 # @!attribute [rw] username_idea
 #   @return [String]
 UsernameGenerationCreateData = Struct.new(
-  :suggestion,
+  :suggestions,
   :username,
   :username_idea,
   keyword_init: true

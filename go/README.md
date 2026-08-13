@@ -258,7 +258,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"suggestion"` |  |
+| `"suggestions"` |  |
 | `"username"` |  |
 | `"username_idea"` |  |
 
@@ -285,7 +285,7 @@ Create an instance: `usernameGeneration := client.UsernameGeneration(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestion` | `[]any` |  |
+| `suggestions` | `[]any` |  |
 | `username` | `string` |  |
 | `username_idea` | `string` |  |
 

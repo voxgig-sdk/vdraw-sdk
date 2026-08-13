@@ -33,7 +33,7 @@ client = VdrawSDK.new
 ### 4. Create, update, and remove
 
 ```ruby
-# create returns the bare created UsernameGeneration record.
+# create returns the ENTITY — call data_get for the created UsernameGeneration record.
 created = client.UsernameGeneration.create({ "username_idea" => "example_username_idea" })
 
 ```
@@ -113,7 +113,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = VdrawSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 usernamegeneration = client.UsernameGeneration.create({ "username_idea" => "example" })
 puts usernamegeneration
 ```
@@ -230,7 +231,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `suggestion` |  |
+| `suggestions` |  |
 | `username` |  |
 | `username_idea` |  |
 
@@ -257,7 +258,7 @@ Create an instance: `username_generation = client.UsernameGeneration`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestion` | `Array` |  |
+| `suggestions` | `Array` |  |
 | `username` | `String` |  |
 | `username_idea` | `String` |  |
 

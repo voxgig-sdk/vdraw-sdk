@@ -116,7 +116,7 @@ const username_generation = client.UsernameGeneration()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestion` | `any[]` | No |  |
+| `suggestions` | `any[]` | No |  |
 | `username` | `string` | No |  |
 | `username_idea` | `string` | Yes |  |
 

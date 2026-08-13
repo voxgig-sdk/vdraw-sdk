@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ VdrawUtility.registrar = ->(u) {
   u.prepare_params = VdrawUtilities::PrepareParams
   u.prepare_path = VdrawUtilities::PreparePath
   u.prepare_query = VdrawUtilities::PrepareQuery
+  u.graphql_body = VdrawUtilities::GraphqlBody
+  u.graphql_errors = VdrawUtilities::GraphqlErrors
   u.result_basic = VdrawUtilities::ResultBasic
   u.result_body = VdrawUtilities::ResultBody
   u.result_headers = VdrawUtilities::ResultHeaders

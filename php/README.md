@@ -34,7 +34,7 @@ $client = new VdrawSDK();
 ### 4. Create, update, and remove
 
 ```php
-// create() returns the bare created UsernameGeneration record.
+// create() returns the ENTITY — call data_get() for the created UsernameGeneration record.
 $created = $client->UsernameGeneration()->create(["username_idea" => "example_username_idea"]);
 
 ```
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = VdrawSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $usernamegeneration = $client->UsernameGeneration()->create(["username_idea" => "example"]);
 print_r($usernamegeneration);
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -240,7 +241,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `suggestion` |  |
+| `suggestions` |  |
 | `username` |  |
 | `username_idea` |  |
 
@@ -267,7 +268,7 @@ Create an instance: `$username_generation = $client->UsernameGeneration();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestion` | `array` |  |
+| `suggestions` | `array` |  |
 | `username` | `string` |  |
 | `username_idea` | `string` |  |
 

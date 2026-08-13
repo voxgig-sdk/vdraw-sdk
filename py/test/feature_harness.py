@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import VdrawControl
-from core.error import VdrawError
-from core.result import VdrawResult
-from core.spec import VdrawSpec
+from vdraw_sdk.config import make_config
+from vdraw_sdk.features import _make_feature
+from vdraw_sdk.core.control import VdrawControl
+from vdraw_sdk.core.error import VdrawError
+from vdraw_sdk.core.result import VdrawResult
+from vdraw_sdk.core.spec import VdrawSpec
 
 
 # True when this SDK was generated with the named feature.

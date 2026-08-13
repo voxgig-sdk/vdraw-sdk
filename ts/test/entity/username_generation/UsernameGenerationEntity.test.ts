@@ -62,7 +62,7 @@ describe('UsernameGenerationEntity', async () => {
     const username_generation_ref01_ent = client.UsernameGeneration()
     let username_generation_ref01_data = setup.data.new.username_generation['username_generation_ref01']
 
-    username_generation_ref01_data = await username_generation_ref01_ent.create(username_generation_ref01_data)
+    username_generation_ref01_data = (await username_generation_ref01_ent.create(username_generation_ref01_data)).data()
     assert(null != username_generation_ref01_data)
 
 

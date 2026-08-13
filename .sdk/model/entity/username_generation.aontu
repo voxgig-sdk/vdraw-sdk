@@ -6,7 +6,7 @@ main: kit: entity: username_generation: {
 
   fields: [
     {
-      name: "suggestion"
+      name: "suggestions"
       req: false
       type: "`$ARRAY`"
     }

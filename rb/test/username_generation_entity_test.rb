@@ -37,7 +37,7 @@ class UsernameGenerationEntityTest < Minitest::Test
       Vs.getpath(setup[:data], "new.username_generation"), "username_generation_ref01"))
 
     username_generation_ref01_data_result = username_generation_ref01_ent.create(username_generation_ref01_data, nil)
-    username_generation_ref01_data = Helpers.to_map(username_generation_ref01_data_result)
+    username_generation_ref01_data = Helpers.to_map(username_generation_ref01_data_result.respond_to?(:data_get) ? username_generation_ref01_data_result.data_get : username_generation_ref01_data_result)
     assert !username_generation_ref01_data.nil?
 
   end
