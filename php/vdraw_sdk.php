@@ -40,7 +40,7 @@ class VdrawSDK
         $utility = new VdrawUtility();
         $this->_utility = $utility;
 
-        $config = VdrawConfig::make_config();
+        $config = VdrawConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

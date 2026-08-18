@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://vdraw.ai/api',
+    base: "https://vdraw.ai/api",
 
     headers: {
       "content-type": "application/json"
@@ -55,25 +55,17 @@ class Config {
     "username_generation": {
       "fields": [
         {
-          "active": true,
           "name": "suggestions",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 0
+          "type": "`$ARRAY`"
         },
         {
-          "active": true,
           "name": "username",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "username_idea",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         }
       ],
       "name": "username_generation",
@@ -83,7 +75,6 @@ class Config {
           "name": "create",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "POST",
@@ -95,11 +86,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "create"
+          ]
         }
       },
       "relations": {

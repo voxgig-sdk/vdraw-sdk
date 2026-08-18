@@ -23,7 +23,7 @@ func NewVdrawSDK(options map[string]any) *VdrawSDK {
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,

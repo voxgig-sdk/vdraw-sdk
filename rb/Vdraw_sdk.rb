@@ -28,7 +28,7 @@ class VdrawSDK
     utility = VdrawUtility.new
     @_utility = utility
 
-    config = VdrawConfig.make_config
+    config = VdrawConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
