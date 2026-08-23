@@ -237,9 +237,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `suggestions` |  |
-| `username` |  |
-| `username_idea` |  |
+| `suggestions` | Alternative username suggestions |
+| `username` | The generated username |
+| `username_idea` | The base idea or keyword for generating a username |
 
 Operations: Create.
 
@@ -264,9 +264,9 @@ Create an instance: `username_generation = client.UsernameGeneration()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestions` | `list` |  |
-| `username` | `str` |  |
-| `username_idea` | `str` |  |
+| `suggestions` | `list` | Alternative username suggestions |
+| `username` | `str` | The generated username |
+| `username_idea` | `str` | The base idea or keyword for generating a username |
 
 #### Example: Create
 

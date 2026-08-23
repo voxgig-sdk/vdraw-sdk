@@ -87,9 +87,9 @@ username_generation = client.UsernameGeneration()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestions` | `list` | No |  |
-| `username` | `str` | No |  |
-| `username_idea` | `str` | Yes |  |
+| `suggestions` | `list` | No | Alternative username suggestions |
+| `username` | `str` | No | The generated username |
+| `username_idea` | `str` | Yes | The base idea or keyword for generating a username |
 
 ### Operations
 

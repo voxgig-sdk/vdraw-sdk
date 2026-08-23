@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Vdraw",
+            "slug": "vdraw",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,15 +53,18 @@ def make_config():
         "fields": [
           {
             "name": "suggestions",
+            "short": "Alternative username suggestions",
             "type": "`$ARRAY`",
           },
           {
             "name": "username",
+            "short": "The generated username",
             "type": "`$STRING`",
           },
           {
             "name": "username_idea",
             "req": True,
+            "short": "The base idea or keyword for generating a username",
             "type": "`$STRING`",
           },
         ],

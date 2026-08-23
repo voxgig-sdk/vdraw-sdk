@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -282,9 +282,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `suggestions` |  |
-| `username` |  |
-| `username_idea` |  |
+| `suggestions` | Alternative username suggestions |
+| `username` | The generated username |
+| `username_idea` | The base idea or keyword for generating a username |
 
 Operations: create.
 
@@ -309,9 +309,9 @@ Create an instance: `const username_generation = client.UsernameGeneration()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestions` | `any[]` |  |
-| `username` | `string` |  |
-| `username_idea` | `string` |  |
+| `suggestions` | `any[]` | Alternative username suggestions |
+| `username` | `string` | The generated username |
+| `username_idea` | `string` | The base idea or keyword for generating a username |
 
 #### Example: Create
 

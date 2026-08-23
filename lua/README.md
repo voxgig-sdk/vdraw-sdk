@@ -226,9 +226,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `suggestions` |  |
-| `username` |  |
-| `username_idea` |  |
+| `suggestions` | Alternative username suggestions |
+| `username` | The generated username |
+| `username_idea` | The base idea or keyword for generating a username |
 
 Operations: Create.
 
@@ -253,9 +253,9 @@ Create an instance: `local username_generation = client:UsernameGeneration(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestions` | `table` |  |
-| `username` | `string` |  |
-| `username_idea` | `string` |  |
+| `suggestions` | `table` | Alternative username suggestions |
+| `username` | `string` | The generated username |
+| `username_idea` | `string` | The base idea or keyword for generating a username |
 
 #### Example: Create
 

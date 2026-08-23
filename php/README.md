@@ -241,9 +241,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `suggestions` |  |
-| `username` |  |
-| `username_idea` |  |
+| `suggestions` | Alternative username suggestions |
+| `username` | The generated username |
+| `username_idea` | The base idea or keyword for generating a username |
 
 Operations: Create.
 
@@ -268,9 +268,9 @@ Create an instance: `$username_generation = $client->UsernameGeneration();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestions` | `array` |  |
-| `username` | `string` |  |
-| `username_idea` | `string` |  |
+| `suggestions` | `array` | Alternative username suggestions |
+| `username` | `string` | The generated username |
+| `username_idea` | `string` | The base idea or keyword for generating a username |
 
 #### Example: Create
 

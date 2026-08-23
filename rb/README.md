@@ -231,9 +231,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `suggestions` |  |
-| `username` |  |
-| `username_idea` |  |
+| `suggestions` | Alternative username suggestions |
+| `username` | The generated username |
+| `username_idea` | The base idea or keyword for generating a username |
 
 Operations: Create.
 
@@ -258,9 +258,9 @@ Create an instance: `username_generation = client.UsernameGeneration`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestions` | `Array` |  |
-| `username` | `String` |  |
-| `username_idea` | `String` |  |
+| `suggestions` | `Array` | Alternative username suggestions |
+| `username` | `String` | The generated username |
+| `username_idea` | `String` | The base idea or keyword for generating a username |
 
 #### Example: Create
 

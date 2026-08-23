@@ -92,9 +92,9 @@ $username_generation = $client->UsernameGeneration();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestions` | `array` | No |  |
-| `username` | `string` | No |  |
-| `username_idea` | `string` | Yes |  |
+| `suggestions` | `array` | No | Alternative username suggestions |
+| `username` | `string` | No | The generated username |
+| `username_idea` | `string` | Yes | The base idea or keyword for generating a username |
 
 ### Operations
 

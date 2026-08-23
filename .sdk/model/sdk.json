@@ -36,18 +36,21 @@
               "active": true,
               "name": "suggestions",
               "req": false,
+              "short": "Alternative username suggestions",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "username",
               "req": false,
+              "short": "The generated username",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "username_idea",
               "req": true,
+              "short": "The base idea or keyword for generating a username",
               "type": "`$STRING`"
             }
           ],

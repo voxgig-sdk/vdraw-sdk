@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Vdraw',
+        slug: "vdraw",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,15 +67,18 @@ class Config {
       "fields": [
         {
           "name": "suggestions",
+          "short": "Alternative username suggestions",
           "type": "`$ARRAY`"
         },
         {
           "name": "username",
+          "short": "The generated username",
           "type": "`$STRING`"
         },
         {
           "name": "username_idea",
           "req": true,
+          "short": "The base idea or keyword for generating a username",
           "type": "`$STRING`"
         }
       ],

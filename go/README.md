@@ -6,7 +6,7 @@ The Golang SDK for the Vdraw API — an entity-oriented client using standard Go
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.UsernameGeneration(nil)` — each with the same small set of operations (`Create`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,9 +258,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"suggestions"` |  |
-| `"username"` |  |
-| `"username_idea"` |  |
+| `"suggestions"` | Alternative username suggestions |
+| `"username"` | The generated username |
+| `"username_idea"` | The base idea or keyword for generating a username |
 
 Operations: Create.
 
@@ -285,9 +285,9 @@ Create an instance: `usernameGeneration := client.UsernameGeneration(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `suggestions` | `[]any` |  |
-| `username` | `string` |  |
-| `username_idea` | `string` |  |
+| `suggestions` | `[]any` | Alternative username suggestions |
+| `username` | `string` | The generated username |
+| `username_idea` | `string` | The base idea or keyword for generating a username |
 
 #### Example: Create
 

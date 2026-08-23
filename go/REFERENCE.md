@@ -98,9 +98,9 @@ fmt.Println(usernameGeneration.GetName()) // "username_generation"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestions` | `[]any` | No |  |
-| `username` | `string` | No |  |
-| `username_idea` | `string` | Yes |  |
+| `suggestions` | `[]any` | No | Alternative username suggestions |
+| `username` | `string` | No | The generated username |
+| `username_idea` | `string` | Yes | The base idea or keyword for generating a username |
 
 ### Operations
 

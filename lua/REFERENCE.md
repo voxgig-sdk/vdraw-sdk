@@ -90,9 +90,9 @@ local username_generation = client:UsernameGeneration(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `suggestions` | `table` | No |  |
-| `username` | `string` | No |  |
-| `username_idea` | `string` | Yes |  |
+| `suggestions` | `table` | No | Alternative username suggestions |
+| `username` | `string` | No | The generated username |
+| `username_idea` | `string` | Yes | The base idea or keyword for generating a username |
 
 ### Operations
 
