@@ -33,8 +33,10 @@ main: kit: entity: username_generation: {
         {
           method: "POST"
           orig: "/username_generate"
-          parts: [
-            "username_generate"
+          segments: [
+            {
+              lit: "username_generate"
+            }
           ]
           transform: {
             req: "`reqdata`"

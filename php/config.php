@@ -85,13 +85,18 @@ class VdrawConfig
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/username_generate',
-                  'parts' => [
-                    'username_generate',
+                  'segments' => [
+                    [
+                      'lit' => 'username_generate',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'username_generate',
                   ],
                 ],
               ],
