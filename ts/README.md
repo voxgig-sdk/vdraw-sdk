@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { VdrawSDK } from '@voxgig-sdk/vdraw'
+import { VdrawSDK } from '@voxgig-sdk/vdraw-sdk'
 
 const client = new VdrawSDK()
 ```
@@ -404,7 +404,7 @@ vdraw/
 Import the SDK from the package root:
 
 ```ts
-import { VdrawSDK } from '@voxgig-sdk/vdraw'
+import { VdrawSDK } from '@voxgig-sdk/vdraw-sdk'
 ```
 
 ### Entity state

@@ -107,7 +107,7 @@ local result, err = client:UsernameGeneration():create({ username_idea = "exampl
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
+| TypeScript | `@voxgig-sdk/vdraw-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
 | Python | `voxgig-sdk-vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
 | PHP | `voxgig-sdk/vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/vdraw-sdk/go` | `go get github.com/voxgig-sdk/vdraw-sdk/go@latest` |
@@ -121,7 +121,7 @@ local result, err = client:UsernameGeneration():create({ username_idea = "exampl
 ### TypeScript
 
 ```ts
-import { VdrawSDK } from '@voxgig-sdk/vdraw'
+import { VdrawSDK } from '@voxgig-sdk/vdraw-sdk'
 
 const client = new VdrawSDK()
 
