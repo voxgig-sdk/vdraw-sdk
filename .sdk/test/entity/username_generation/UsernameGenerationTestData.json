@@ -29,5 +29,117 @@
         "username_idea": "s7a"
       }
     }
+  },
+  "requests": {
+    "POST /username_generate": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "usernameGenerate",
+        "parameters": [],
+        "protocol": "http",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "username_idea": {
+                    "description": "The base idea or keyword for generating a username",
+                    "example": "username_idea",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username_idea"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "suggestions": [
+                    "cool_username_pro",
+                    "awesome_username_king",
+                    "epic_username_master"
+                  ],
+                  "username": "funky_username_2026"
+                },
+                "schema": {
+                  "properties": {
+                    "suggestions": {
+                      "description": "Alternative username suggestions",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "username": {
+                      "description": "The generated username",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successfully generated username"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "Additional error details",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - Invalid input parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "description": "Error code",
+                      "type": "string"
+                    },
+                    "details": {
+                      "description": "Additional error details",
+                      "type": "string"
+                    },
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
