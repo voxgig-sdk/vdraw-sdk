@@ -107,12 +107,12 @@ local result, err = client:UsernameGeneration():create({ username_idea = "exampl
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/vdraw-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
-| Python | `voxgig-sdk-vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
-| PHP | `voxgig-sdk/vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
+| TypeScript | `@voxgig-sdk/vdraw-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/tags) |
+| Python | `voxgig-sdk-vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/tags) |
+| PHP | `voxgig-sdk/vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/vdraw-sdk/go` | `go get github.com/voxgig-sdk/vdraw-sdk/go@latest` |
-| Ruby | `voxgig-sdk-vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
-| Lua | `voxgig-sdk-vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/releases) |
+| Ruby | `voxgig-sdk-vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/tags) |
+| Lua | `voxgig-sdk-vdraw` | publish pending — [install from git tag](https://github.com/voxgig-sdk/vdraw-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/vdraw-sdk/go-cli` | `go install github.com/voxgig-sdk/vdraw-sdk/go-cli/cmd/vdraw@latest` |
 | Go MCP server | `github.com/voxgig-sdk/vdraw-sdk/go-mcp` | `go get github.com/voxgig-sdk/vdraw-sdk/go-mcp@latest` |
 

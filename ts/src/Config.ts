@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      username_generation: {
-      },
-
+        username_generation: {
+        },
+  
     }
   }
 
