@@ -1,0 +1,60 @@
+# Entity: username_generation
+
+main: kit: entity: username_generation: {
+
+  alias: field: {}
+
+  fields: {
+    suggestions: {
+      h: "Suggestions"
+      n: "suggestions"
+      r: false
+      sh: "Alternative username suggestions"
+      t: "`$ARRAY`"
+    }
+    username: {
+      h: "Username"
+      n: "username"
+      r: false
+      sh: "The generated username"
+      t: "`$STRING`"
+    }
+    username_idea: {
+      h: "Username Idea"
+      n: "username_idea"
+      r: true
+      sh: "The base idea or keyword for generating a username"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "username_generation"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /username_generate"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/username_generate"
+          s: [
+            {
+              lit: "username_generate"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

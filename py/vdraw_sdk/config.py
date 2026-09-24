@@ -116,19 +116,22 @@ def make_config():
         "fields": [
           {
             "name": "suggestions",
-            "short": "Alternative username suggestions",
+            "title": "Suggestions",
             "type": "`$ARRAY`",
+            "short": "Alternative username suggestions",
           },
           {
             "name": "username",
-            "short": "The generated username",
+            "title": "Username",
             "type": "`$STRING`",
+            "short": "The generated username",
           },
           {
             "name": "username_idea",
+            "title": "Username Idea",
+            "type": "`$STRING`",
             "req": True,
             "short": "The base idea or keyword for generating a username",
-            "type": "`$STRING`",
           },
         ],
         "name": "username_generation",
@@ -138,7 +141,6 @@ def make_config():
             "name": "create",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "POST",
                 "orig": "/username_generate",
@@ -147,14 +149,16 @@ def make_config():
                     "lit": "username_generate",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "username_generate",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "username_generate",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },

@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,19 +132,22 @@ class Config {
       "fields": [
         {
           "name": "suggestions",
-          "short": "Alternative username suggestions",
-          "type": "`$ARRAY`"
+          "title": "Suggestions",
+          "type": "`$ARRAY`",
+          "short": "Alternative username suggestions"
         },
         {
           "name": "username",
-          "short": "The generated username",
-          "type": "`$STRING`"
+          "title": "Username",
+          "type": "`$STRING`",
+          "short": "The generated username"
         },
         {
           "name": "username_idea",
+          "title": "Username Idea",
+          "type": "`$STRING`",
           "req": true,
-          "short": "The base idea or keyword for generating a username",
-          "type": "`$STRING`"
+          "short": "The base idea or keyword for generating a username"
         }
       ],
       "name": "username_generation",
@@ -161,7 +157,6 @@ class Config {
           "name": "create",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "POST",
               "orig": "/username_generate",
@@ -170,14 +165,16 @@ class Config {
                   "lit": "username_generate"
                 }
               ],
-              "select": {},
+              "parts": [
+                "username_generate"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "username_generate"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         }

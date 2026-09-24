@@ -1,7 +1,7 @@
 // Typed models for the Vdraw SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,9 +14,6 @@ import (
 
 // UsernameGeneration is the typed data model for the username_generation entity.
 type UsernameGeneration struct {
-	Suggestions *[]any `json:"suggestions,omitempty"`
-	Username *string `json:"username,omitempty"`
-	UsernameIdea string `json:"username_idea"`
 }
 
 // UsernameGenerationCreateData is the typed request payload for UsernameGeneration.CreateTyped.

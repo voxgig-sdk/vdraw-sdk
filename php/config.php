@@ -113,19 +113,22 @@ class VdrawConfig
           'fields' => [
             [
               'name' => 'suggestions',
-              'short' => 'Alternative username suggestions',
+              'title' => 'Suggestions',
               'type' => '`$ARRAY`',
+              'short' => 'Alternative username suggestions',
             ],
             [
               'name' => 'username',
-              'short' => 'The generated username',
+              'title' => 'Username',
               'type' => '`$STRING`',
+              'short' => 'The generated username',
             ],
             [
               'name' => 'username_idea',
+              'title' => 'Username Idea',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The base idea or keyword for generating a username',
-              'type' => '`$STRING`',
             ],
           ],
           'name' => 'username_generation',
@@ -135,7 +138,6 @@ class VdrawConfig
               'name' => 'create',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'POST',
                   'orig' => '/username_generate',
@@ -144,14 +146,16 @@ class VdrawConfig
                       'lit' => 'username_generate',
                     ],
                   ],
-                  'select' => [],
+                  'parts' => [
+                    'username_generate',
+                  ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'username_generate',
-                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],

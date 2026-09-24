@@ -91,19 +91,22 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "suggestions",
-						"short": "Alternative username suggestions",
+						"title": "Suggestions",
 						"type": "`$ARRAY`",
+						"short": "Alternative username suggestions",
 					},
 					map[string]any{
 						"name": "username",
-						"short": "The generated username",
+						"title": "Username",
 						"type": "`$STRING`",
+						"short": "The generated username",
 					},
 					map[string]any{
 						"name": "username_idea",
+						"title": "Username Idea",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The base idea or keyword for generating a username",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "username_generation",
@@ -113,7 +116,6 @@ func MakeConfig() map[string]any {
 						"name": "create",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "POST",
 								"orig": "/username_generate",
@@ -122,14 +124,16 @@ func MakeConfig() map[string]any {
 										"lit": "username_generate",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"username_generate",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"username_generate",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
